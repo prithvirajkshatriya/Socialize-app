@@ -1,0 +1,36 @@
+{
+  "name": "SocialMediaApp",
+  "version": "1.0.0",
+  "description": "A simple MERN-stack based social media app.",
+  "main": "index.js",
+  "author": "Prithvi",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "node",
+    "express",
+    "mongodb",
+    "mern"
+  ],
+  "dependencies": {
+    "@hot-loader/react-dom": "^17.0.1",
+    "express": "^4.17.1",
+    "jshint": "^2.12.0",
+    "mongodb": "^3.6.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-hot-loader": "^4.13.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.7",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-middleware": "^4.1.0",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-node-externals": "^2.5.2"
+  }
+}
