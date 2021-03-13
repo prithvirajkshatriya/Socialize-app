@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A simple MERN-stack based social media app.",
   "main": "index.js",
+  "scripts": {
+    "development": "nodemon"
+  },
   "author": "Prithvi",
   "license": "MIT",
   "keywords": [
@@ -14,9 +17,14 @@
   ],
   "dependencies": {
     "@hot-loader/react-dom": "^17.0.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "helmet": "^4.4.1",
     "jshint": "^2.12.0",
     "mongodb": "^3.6.4",
+    "mongoose": "^5.12.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-hot-loader": "^4.13.0"
