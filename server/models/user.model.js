@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import crypto from "crypto";
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -29,7 +30,8 @@ const UserSchema = new mongoose.Schema({
  * The password string that's provided by the user is not stored directly in the user
  * document. Instead, it is handled as a virtual field.
  */
-UserSchema.virtual("password")
+UserSchema
+  .virtual("password")
   .set(function (password) {
     this._password = password;
     this.salt = this.makeSalt();
@@ -38,6 +40,20 @@ UserSchema.virtual("password")
   .get(function () {
     return this._password;
   });
+
+/**
+ * To add validation constraints to the actual password string that's selected by the end
+ * user, we need to add custom validation logic and associate it with the hashed_password
+ * field in the schema.
+ */
+UserSchema.path("hashed_password").validate(function (v) {
+  if (this._password && this._password.length < 8) {
+    this.invalidate("password", "Password must be atleast 8 characters.");
+  }
+  if (this.isNew && !this._password) {
+    this.invalidate("password", "Password is required.");
+  }
+}, null);
 
 /**
  * The encryption logic and salt generation logic, which are used to generate the
@@ -63,19 +79,5 @@ UserSchema.methods = {
     return Math.round(new Date().valueOf() * Math.random()) + "";
   },
 };
-
-/**
- * To add validation constraints to the actual password string that's selected by the end
- * user, we need to add custom validation logic and associate it with the hashed_password
- * field in the schema.
- */
-UserSchema.path("hashed_password").validate(function (v) {
-  if (this._password && this._password.length < 8) {
-    this.invalidate("password", "Password must be atleast 8 characters.");
-  }
-  if (this.isNew && !this._password) {
-    this.invalidate("password", "Password is required.");
-  }
-}, null);
 
 export default mongoose.model("User", UserSchema);

@@ -8,6 +8,7 @@ import Template from "./../template";
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
 
+const CURRENT_WORKING_DIR = process.cwd();
 const app = express();
 
 app.use(express.json());
@@ -19,14 +20,15 @@ app.use(compress());
 app.use(helmet());
 app.use(cors());
 
-// app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
+app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
 
 app.use('/', userRoutes);
 app.use('/', authRoutes);
 
-app.get("/", (req, res) => {
-  res.status(200).send(Template());
-});
+app
+  .get("/", (req, res) => {
+    res.status(200).send(Template());
+  });
 
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
