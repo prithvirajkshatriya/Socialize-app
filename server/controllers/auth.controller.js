@@ -21,7 +21,7 @@ const signin = async (req, res) => {
         }
 
         const token = jwt.sign({
-            _id: user.id,
+            _id: user._id,
         }, config.jwtSecret);
 
         res.cookie('t', token, {
