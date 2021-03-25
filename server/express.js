@@ -7,9 +7,12 @@ import helmet from "cors";
 import Template from "./../template";
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
+import devBundle from "./devBundle"; //This line should be removed when building for production.
 
-const CURRENT_WORKING_DIR = process.cwd();
 const app = express();
+const CURRENT_WORKING_DIR = process.cwd();
+
+devBundle.compile(app); //This line should be removed when building for production.
 
 app.use(express.json());
 app.use(express.urlencoded({
