@@ -10,7 +10,7 @@ mongoose.connect(config.mongoUri, {
   useUnifiedTopology: true,
 });
 mongoose.connection.on("error", () => {
-  throw new Error(`unable to connect to database: ${mongoUri}`);
+  throw new Error(`unable to connect to database: ${config.mongoUri}`);
 });
 
 // Server port setup.
@@ -19,6 +19,6 @@ app.listen(config.port, (err) => {
     console.log(err);
   }
   console.log(
-    "Server started successfully and listening on port " + config.port + " !"
+    "Server started successfully and listening on port " + config.port + "."
   );
 });
