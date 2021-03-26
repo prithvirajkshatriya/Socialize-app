@@ -7,12 +7,12 @@ import helmet from "cors";
 import Template from "./../template";
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
-import devBundle from "./devBundle"; //This line should be removed when building for production.
+// import devBundle from "./devBundle"; //This line should be removed when building for production.
 
 const app = express();
 const CURRENT_WORKING_DIR = process.cwd();
 
-devBundle.compile(app); //This line should be removed when building for production.
+// devBundle.compile(app); //This line should be removed when building for production.
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -20,7 +20,11 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 app.use(compress());
+
+// Secure apps by setting various HTTP headers.
 app.use(helmet());
+
+// Cross origin resource sharing
 app.use(cors());
 
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
