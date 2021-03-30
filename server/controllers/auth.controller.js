@@ -24,7 +24,7 @@ const signin = async (req, res) => {
             _id: user._id,
         }, config.jwtSecret);
 
-        res.cookie('t', token, {
+        res.cookie("t", token, {
             expire: new Date() + 9999
         });
 
