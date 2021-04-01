@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import crypto from "crypto";
+import mongoose from 'mongoose';
+import crypto from 'crypto';
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -30,8 +30,7 @@ const UserSchema = new mongoose.Schema({
  * The password string that's provided by the user is not stored directly in the user
  * document. Instead, it is handled as a virtual field.
  */
-UserSchema
-  .virtual('password')
+UserSchema.virtual('password')
   .set(function (password) {
     this._password = password;
     this.salt = this.makeSalt();
@@ -62,7 +61,7 @@ UserSchema.path('hashed_password').validate(function (v) {
  */
 UserSchema.methods = {
   authenticate: function (plainText) {
-    return this.authenticate(plainText) === this.hashed_password;
+    return this.encryptPassword(plainText) === this.hashed_password;
   },
   encryptPassword: function (password) {
     if (!password) return '';
