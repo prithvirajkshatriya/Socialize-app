@@ -29,6 +29,8 @@ const signin = async (req, res) => {
 
     res.cookie('t', token, {
       expire: new Date() + 9999,
+      // expire: new Date(9999),
+      // expire: new Date(),
     });
 
     return res.json({
@@ -40,11 +42,12 @@ const signin = async (req, res) => {
       },
     });
   } catch (err) {
+    console.log(err);
     return res.status('401').json({
-      // error: "Could not sign in ! :("
+      error: 'Could not sign in ! :(',
 
-      // Below state to actually check what's going wrong.
-      error: err.message,
+      // Below statement to actually check what's going wrong.
+      // error: err.message,
     });
   }
 };
