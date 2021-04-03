@@ -1,5 +1,5 @@
 export default () => {
-    return `
+  return `
         <!DOCYPE html>
         <html lang="en">
             <head>
@@ -9,6 +9,7 @@ export default () => {
                 <div id="root">
                     This is a simple social media app using MERN stack.
                 </div>
+                <script type="text/javascript" src="/dist/bundle.js"></script>
             </body>
         </html>
     `;

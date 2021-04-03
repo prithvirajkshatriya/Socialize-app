@@ -7,12 +7,17 @@ import helmet from 'helmet';
 import Template from './../template';
 import userRoutes from './routes/user.routes';
 import authRoutes from './routes/auth.routes';
-// import devBundle from "./devBundle"; //This line should be removed when building for production.
+
+//This line should be removed when building for production.
+import devBundle from './devBundle';
 
 const app = express();
 const CURRENT_WORKING_DIR = process.cwd();
 
-// devBundle.compile(app); //This line should be removed when building for production.
+//This line should be removed when building for production.
+devBundle.compile(app);
+
+app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
 
 app.use(express.json());
 app.use(
@@ -28,8 +33,6 @@ app.use(helmet());
 
 // Cross origin resource sharing
 app.use(cors());
-
-app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
 
 app.use('/', userRoutes);
 app.use('/', authRoutes);
