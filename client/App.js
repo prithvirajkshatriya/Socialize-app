@@ -1,27 +1,19 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import { pink } from '@material-ui/core/colors';
+import { ThemeProvider } from '@material-ui/core/styles';
+import React from 'react';
+import MainRouter from './MainRouter';
+import { BrowserRouter } from 'react-router-dom';
+import theme from './theme';
+import { hot } from 'react-hot-loader';
 
-const theme = createMuiTheme({
-  typography: {
-    useNextVariants: true,
-  },
-  palette: {
-    primary: {
-      light: '#5c67a3',
-      main: '#3f4771',
-      dark: '#2e355b',
-      contrastText: '#fff',
-    },
-    secondary: {
-      light: '#ff79b0',
-      main: '#ff4081',
-      dark: '#c60055',
-      contrastText: '#000',
-    },
-    openTitle: '#3f4771',
-    protectedTitle: pink['400'],
-    type: 'light',
-  },
-});
+const App = () => {
+  return (
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <MainRouter />
+      </ThemeProvider>
+    </BrowserRouter>
+  );
+};
 
-export default theme;
+// Marking the App component below as hot enables live reloading of react components during development.
+export default hot(module)(App);
