@@ -1,4 +1,5 @@
 // Helper methods for user CRUD.
+// Fetch for user CRUD.
 // The create() methods will take data from the view component,
 // which'll invoke this method. FInally, a promise is returned
 // as a response from the server.
