@@ -2,7 +2,7 @@
   "name": "socialize",
   "version": "1.0.0",
   "description": "A simple MERN-stack based social media app.",
-  "main": "index.js",
+  "main": "./dist/server.generated.js",
   "scripts": {
     "development": "nodemon",
     "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
