@@ -1,6 +1,6 @@
 const config = {
-  env: process.env.NODE_ENV || 'development',
-  //   env: process.env.NODE_ENV || 'production',
+  // env: process.env.NODE_ENV || 'development',
+  env: process.env.NODE_ENV || 'production',
   port: process.env.PORT || 3000,
   // The secret key to be used to sign JWT.
   jwtSecret: process.env.JWT_SECRET || 'YOUR_secret_key',

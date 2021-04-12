@@ -4,8 +4,8 @@ const CURRENT_WORKING_DIR = process.cwd();
 
 const config = {
   name: 'browser',
-  mode: 'development',
-  // mode: 'production',
+  // mode: 'development',
+  mode: 'production',
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',

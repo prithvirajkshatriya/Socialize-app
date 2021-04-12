@@ -9,13 +9,13 @@ import userRoutes from './routes/user.routes';
 import authRoutes from './routes/auth.routes';
 
 //This line should be removed when building for production.
-import devBundle from './devBundle';
+// import devBundle from './devBundle';
 
 const app = express();
 const CURRENT_WORKING_DIR = process.cwd();
 
 //This line should be removed when building for production.
-devBundle.compile(app);
+// devBundle.compile(app);
 
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
 
