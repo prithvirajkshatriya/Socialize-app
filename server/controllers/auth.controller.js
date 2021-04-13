@@ -9,10 +9,6 @@ const signin = async (req, res) => {
       email: req.body.email,
     });
     if (!user) {
-      // return res.status('401').json({
-      //   error: 'User not found',
-      // });
-      // return res.redirect('/signin');
       return [
         res.status('401').json({
           error: 'User not found',
@@ -36,8 +32,6 @@ const signin = async (req, res) => {
 
     res.cookie('t', token, {
       expire: new Date() + 9999,
-      // expire: new Date(9999),
-      // expire: new Date(),
     });
 
     return res.json({
@@ -52,9 +46,6 @@ const signin = async (req, res) => {
     console.log(err);
     return res.status('401').json({
       error: 'Could not sign in ! :(',
-
-      // Below statement to actually check what's going wrong.
-      // error: err.message,
     });
   }
 };
