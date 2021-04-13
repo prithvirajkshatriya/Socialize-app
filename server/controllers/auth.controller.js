@@ -9,9 +9,16 @@ const signin = async (req, res) => {
       email: req.body.email,
     });
     if (!user) {
-      return res.status('401').json({
-        error: 'User not found',
-      });
+      // return res.status('401').json({
+      //   error: 'User not found',
+      // });
+      // return res.redirect('/signin');
+      return [
+        res.status('401').json({
+          error: 'User not found',
+        }),
+        res.redirect('/signin'),
+      ];
     }
 
     if (!user.authenticate(req.body.password)) {
