@@ -81,8 +81,8 @@ export default function Signup() {
           </Button>
         </CardActions>
       </Card>
-      <Dialog>
-        <DialogTitle></DialogTitle>
+      <Dialog open={values.open} disabledBackdropClick={true}>
+        <DialogTitle>New account</DialogTitle>
         <DialogContent>
           <DialogContentText>
             New account successfully created

@@ -1,14 +1,13 @@
 export default function Users() {
-  const [state, setstate] = useState([]);
+  const [users, setUsers] = useState([]);
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
-
     list(signal).then((data) => {
       if (data && data.error) {
         console.log(data.error);
       } else {
-        setUser(data);
+        setUsers(data);
       }
     });
     return function cleanup() {

@@ -11,9 +11,7 @@ export default () => {
                 rel="stylesheet">
             </head>
             <body>
-                <div id="root">
-                    This is a simple social media app using MERN stack.
-                </div>
+                <div id="root"></div>
                 <script type="text/javascript" src="/dist/bundle.js"></script>
             </body>
         </html>

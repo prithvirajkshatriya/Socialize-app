@@ -14,10 +14,10 @@ import devBundle from './devBundle';
 const app = express();
 const CURRENT_WORKING_DIR = process.cwd();
 
+app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
+
 //This line should be removed when building for production.
 devBundle.compile(app);
-
-app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
 
 app.use(express.json());
 app.use(

@@ -38,6 +38,7 @@ export default function Home() {
       <CardContent>
         <Typography variant="body2" component="p">
           Welcome to Socialize home page.
+          <Link to="/users">Users</Link>
         </Typography>
       </CardContent>
     </Card>
