@@ -1,10 +1,17 @@
+import React, { useState, useEffect } from 'react';
+import auth from './../auth/auth-helper';
+import { read } from './api-user';
+import { Redirect, Link } from 'react-router-dom';
+import DeleteUser from './DeleteUser';
+
 export default function Profile({ match }) {
   const [user, setUser] = useState({});
   const [redirectToSignin, setRedirectoSignin] = useState(false);
+  const jwt = auth.isAuthenticated();
+
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
-    const jwt = auth.isAuthenticated();
     read(
       {
         userId: match.params.userId,
