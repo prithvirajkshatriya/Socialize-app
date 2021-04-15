@@ -8,15 +8,21 @@ import Template from './../template';
 import userRoutes from './routes/user.routes';
 import authRoutes from './routes/auth.routes';
 
-//This line should be removed when building for production.
+// Server side rendering modules.
+import React from 'react';
+import ReactDomServer from 'react-dom/server';
+import MainRouter from './../client/MainRouter';
+import { StaticRouter } from 'react-router-dom';
+import { ServerStyleSheets, ThemeProvider } from '@material-ui/styles';
+import theme from './../client/theme';
+
+// Should be removed when building for production.
 import devBundle from './devBundle';
 
-const app = express();
 const CURRENT_WORKING_DIR = process.cwd();
+const app = express();
 
-app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
-
-//This line should be removed when building for production.
+// Should be removed when building for production.
 devBundle.compile(app);
 
 app.use(express.json());
@@ -30,15 +36,40 @@ app.use(compress());
 
 // Secure apps by setting various HTTP headers.
 app.use(helmet());
-
 // Cross origin resource sharing
 app.use(cors());
 
+app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
+
+// Mounting routes.
 app.use('/', userRoutes);
 app.use('/', authRoutes);
 
-app.get('/', (req, res) => {
-  res.status(200).send(Template());
+// Generate CSS styles using Material-UI's ServerStyleSheets.
+// Use renderToString to generate markup which renders components specific to the route requested.
+// Return template with markup and CSS styles in the response.
+app.get('*', (req, res) => {
+  const sheets = new ServerStyleSheets();
+  const context = {};
+  const markup = ReactDomServer.renderToString(
+    sheets.collect(
+      <StaticRouter location={req.url} context={context}>
+        <ThemeProvider theme={theme}>
+          <MainRouter />
+        </ThemeProvider>
+      </StaticRouter>
+    )
+  );
+  if (context.url) {
+    return res.redirect(303, context.url);
+  }
+  const css = sheets.toString();
+  res.status(200).send(
+    Template({
+      markup: markup,
+      css: css,
+    })
+  );
 });
 
 app.use((err, req, res, next) => {

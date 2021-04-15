@@ -1,4 +1,4 @@
-export default () => {
+export default ({ markup, css }) => {
   return `
         <!DOCYPE html>
         <html lang="en">
@@ -9,9 +9,16 @@ export default () => {
                 rel="stylesheet">
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
                 rel="stylesheet">
+                <style>
+                    a {
+                        text-decoration: none;
+                        color: #061d95;
+                    }
+                </style>
             </head>
             <body>
-                <div id="root"></div>
+                <div id="root">${markup}</div>
+                <style id="jss-server-side>${css}</style>
                 <script type="text/javascript" src="/dist/bundle.js"></script>
             </body>
         </html>

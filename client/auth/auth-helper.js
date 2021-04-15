@@ -5,8 +5,8 @@ const auth = {
   // retrieve the stored credentials to check
   // if the current user is signed in.
   // Retrieving credentials.
-  isAuthenticated(jwt) {
-    if (typeof window !== 'undefined') {
+  isAuthenticated() {
+    if (typeof window == 'undefined') {
       return false;
     }
     if (sessionStorage.getItem('jwt')) {
@@ -31,7 +31,8 @@ const auth = {
       sessionStorage.removeItem('jwt');
     }
     cb();
-    signout().then(() => {
+    // Optional
+    signout().then((data) => {
       document.cookie = 't=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     });
   },

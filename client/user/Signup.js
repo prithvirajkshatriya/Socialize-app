@@ -15,7 +15,34 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Link } from 'react-router-dom';
 
+const useStyles = makeStyles((theme) => ({
+  card: {
+    maxWidth: 600,
+    margin: 'auto',
+    textAlign: 'center',
+    marginTop: theme.spacing(5),
+    paddingBottom: theme.spacing(2),
+  },
+  error: {
+    verticalAlign: 'middle',
+  },
+  title: {
+    margin: theme.spacing(2),
+    color: theme.palette.protectedTitle,
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 300,
+  },
+  submit: {
+    margin: 'auto',
+    marginRight: theme.spacing(2),
+  },
+}));
+
 export default function Signup() {
+  const classes = useStyles();
   const [values, setValues] = useState({
     name: '',
     password: '',
