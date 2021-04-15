@@ -21,6 +21,15 @@ const useStyles = makeStyles((theme) => ({
   media: {
     minHeight: 400,
   },
+  credit: {
+    padding: 10,
+    textAlign: 'right',
+    backgroundColor: '#ededed',
+    borderBottom: '1px solid #d0d0d0',
+    '& a': {
+      color: '#3f4771',
+    },
+  },
 }));
 
 export default function Home() {
@@ -38,7 +47,6 @@ export default function Home() {
       <CardContent>
         <Typography variant="body2" component="p">
           Welcome to Socialize home page.
-          <Link to="/users">Users</Link>
         </Typography>
       </CardContent>
     </Card>
