@@ -62,6 +62,10 @@ export default function Profile({ match }) {
     return <Redirect to="/signin" />;
   }
 
+  const photoUrl = values.user._id
+    ? `/api/users/photo/${values.user._id}?${new Date().getTime()}`
+    : '/api/users/defaultphoto';
+
   return (
     <Paper className={classes.root} elevation={4}>
       <Typography variant="h6" className={classes.title}>
@@ -90,7 +94,8 @@ export default function Profile({ match }) {
         <Divider />
         <ListItem>
           <ListItemtext
-            primary={'Joined: ' + new Date(user.created).toDateString()}
+            primary={this.state.user.about}
+            secondary={'Joined: ' + new Date(user.created).toDateString()}
           />
         </ListItem>
       </List>
