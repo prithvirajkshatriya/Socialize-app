@@ -13,6 +13,18 @@ router
 router.route('/api/users/defaultphoto').get(userCtrl.defaultPhoto);
 
 router
+  .route('/api/users/follow')
+  .put(authCtrl.requireSignin, authCtrl.addFollowing, authCtrl.addFollower);
+
+router
+  .route('/api/users/unfollow')
+  .put(
+    authCtrl.requireSignin,
+    authCtrl.removeFollowing,
+    authCtrl.removeFollower
+  );
+
+router
   .route('/api/users/:userId')
   .get(authCtrl.requireSignin, userCtrl.read)
   .put(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.update)

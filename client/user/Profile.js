@@ -10,7 +10,6 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Edit from '@material-ui/icons/Edit';
-import Person from '@material-ui/icons/Person';
 import Divider from '@material-ui/core/Divider';
 import DeleteUser from './DeleteUser';
 import auth from './../auth/auth-helper';
@@ -25,8 +24,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(5),
   }),
   title: {
-    marginTop: theme.spacing(3),
+    marginTop: `${theme.spacing(2)}px ${theme.spacing(1)}px 0`,
     color: theme.palette.protectedTitle,
+    fontSize: '1em',
+  },
+  bigAvatar: {
+    width: 60,
+    height: 60,
+    margin: 10,
   },
 }));
 
@@ -58,14 +63,13 @@ export default function Profile({ match }) {
     };
   }, [match.params.userId]);
 
-  if (redirectToSignin) {
-    return <Redirect to="/signin" />;
-  }
-
   const photoUrl = values.user._id
     ? `/api/users/photo/${values.user._id}?${new Date().getTime()}`
     : '/api/users/defaultphoto';
 
+  if (redirectToSignin) {
+    return <Redirect to="/signin" />;
+  }
   return (
     <Paper className={classes.root} elevation={4}>
       <Typography variant="h6" className={classes.title}>
@@ -74,9 +78,7 @@ export default function Profile({ match }) {
       <List dense>
         <ListItem>
           <ListItemAvatar>
-            <Avatar>
-              <Person />
-            </Avatar>
+            <Avatar src={photoUrl} className={classes.bigAvatar} />
           </ListItemAvatar>
           <ListItemText primary={user.name} secondary={user.email} />
         </ListItem>
