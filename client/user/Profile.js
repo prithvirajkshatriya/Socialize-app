@@ -16,6 +16,7 @@ import auth from './../auth/auth-helper';
 import { read } from './api-user.js';
 import { Redirect, Link } from 'react-router-dom';
 import FollowProfileButton from './FollowProfileButton';
+import ProfileTabs from './../user/ProfileTabs';
 
 const useStyles = makeStyles((theme) => ({
   root: theme.mixins.gutters({
@@ -38,7 +39,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Profile({ match }) {
   const classes = useStyles();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    user: { following: [], followers: [] },
+    redirectToSignin: false,
+    following: false,
+  });
   const [redirectToSignin, setRedirectoSignin] = useState(false);
   const jwt = auth.isAuthenticated();
 
@@ -85,6 +90,11 @@ export default function Profile({ match }) {
         setValues({ ...values, error: data.error });
       } else {
         setValues({ ...values, user: data, following: !values.following });
+        <ProfileTabs
+          user={values.user}
+          posts={posts}
+          removePostUpdate={removePost}
+        />;
       }
     });
   };
@@ -110,25 +120,25 @@ export default function Profile({ match }) {
             primary={values.user.name}
             secondary={values.user.email}
           />
+          {auth.isAuthenticated().user &&
+          auth.isAuthenticated().user._id == values.user._id ? (
+            // Edit and delete button.
+            <ListItemSecondaryAction>
+              <Link to={'/user/edit/' + values.user._id}>
+                <IconButton aria-label="Edit" color="primary">
+                  <Edit />
+                </IconButton>
+              </Link>
+              <DeleteUser userId={values.user._id} />
+            </ListItemSecondaryAction>
+          ) : (
+            // Follow button.
+            <FollowProfileButton
+              following={values.following}
+              onButtonClick={clickFollowButton}
+            />
+          )}
         </ListItem>
-        {auth.isAuthenticated().user &&
-        auth.isAuthenticated().user._id == values.user._id ? (
-          // Edit and delete button.
-          <ListItemSecondaryAction>
-            <Link to={'/user/edit/' + values.user._id}>
-              <IconButton aria-label="Edit" color="primary">
-                <Edit />
-              </IconButton>
-            </Link>
-            <DeleteUser userId={values.user._id} />
-          </ListItemSecondaryAction>
-        ) : (
-          // Follow button.
-          <FollowProfileButton
-            following={values.following}
-            onButtonClick={clickFollowButton}
-          />
-        )}
         <Divider />
         <ListItem>
           <ListItemtext
@@ -137,6 +147,11 @@ export default function Profile({ match }) {
           />
         </ListItem>
       </List>
+      <ProfileTabs
+        user={values.user}
+        posts={posts}
+        removePostUpdate={removePost}
+      />
     </Paper>
   );
 }

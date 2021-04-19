@@ -1,7 +1,7 @@
 // Helper methods for user CRUD.
 // Fetch for user CRUD.
 // The create() methods will take data from the view component,
-// which'll invoke this method. FInally, a promise is returned
+// which'll invoke this method. Finally, a promise is returned
 // as a response from the server.
 
 // Creating a new user.
@@ -125,4 +125,21 @@ const unfollow = async (params, credentials, unfollowId) => {
   }
 };
 
-export { create, list, read, update, remove, follow, unfollow };
+const discover = async (params, credentials, signal) => {
+  try {
+    let response = await fetch('/api/users/discover/' + params.userId, {
+      method: 'GET',
+      signal: signal,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + credentials.t,
+      },
+    });
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { create, list, read, update, remove, follow, unfollow, discover };

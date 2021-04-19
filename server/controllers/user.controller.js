@@ -201,6 +201,20 @@ const removeFollower = async (req, res) => {
   }
 };
 
+// Find (all) users that (a particular) user doesn't follow.
+const discover = async (req, res) => {
+  let following = req.profile.following;
+  following.push(req.profile._id);
+  try {
+    let users = await User.find({ _id: { $nin: following } }).select('name');
+    res.json(users);
+  } catch (error) {
+    return res.status(400).json({
+      error: errorHandler.getErrorMessage(error),
+    });
+  }
+};
+
 export default {
   create,
   userById,
@@ -214,4 +228,5 @@ export default {
   addFollower,
   removeFollowing,
   removeFollower,
+  discover,
 };

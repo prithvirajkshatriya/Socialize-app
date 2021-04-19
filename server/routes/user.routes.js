@@ -25,6 +25,10 @@ router
   );
 
 router
+  .route('/api/users/discover/:userId')
+  .get(authCtrl.requireSignin, userCtrl.discover);
+
+router
   .route('/api/users/:userId')
   .get(authCtrl.requireSignin, userCtrl.read)
   .put(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.update)
