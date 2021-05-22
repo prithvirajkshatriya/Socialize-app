@@ -23,6 +23,13 @@
 > yarn 
 > yarn start
 
+# Looking forward to add features
+- **Block** & **Unblock** users
+- **Share** within **socialize** and to **other apps**
+
+# Note
+You can freely approach me regarding improvements & suggestions. I'd be glad on getting help & guidance in adding new features. ✨
+
 Cheers !! 🥂
 
 
