@@ -3,13 +3,13 @@
 
 # Features 💊
 - **Signin** & **Signup** 🍒
-- **Follow** & **Unfollow** 📇
-- **Add** & **delete** posts
-- **Newsfeed** 
-- **Discover** users
-- **Like** & **Unlike** posts
-- **Comment** & **Uncomment** on posts
-- **Authentication** for signin
+- **Follow** & **Unfollow** users 👥
+- **Add** & **delete** posts ✔️
+- **Newsfeed** 📰
+- **Discover** users 🔎
+- **Like** & **Unlike** posts 👍🏻 👎🏻
+- **Comment** & **Uncomment** on posts 🤡
+- **Authentication** for signin 🛡️
 
 # Tools used 🧰
 - [react@17.0.2](https://reactjs.org/)
@@ -23,12 +23,12 @@
 > yarn <br>
 > yarn start <br>
 
-# Looking forward to add features
+# Looking forward to add features ⏭️
 - **Block** & **Unblock** users
 - **Share** within **socialize** and to **other apps**
 
-# Note
-Feel freee to provide any (sort of) improvements & suggestions. I'd be glad on getting help & guidance in adding new features. ✨
+# Note 📝
+Feel free to provide any (sort of) improvements & suggestions. I'd be glad on getting help & guidance in adding new features. ✨
 
 
 Cheers !! 🥂
