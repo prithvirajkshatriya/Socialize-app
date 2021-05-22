@@ -19,9 +19,9 @@
 - [nodejs@15.14.0](https://nodejs.org/)
 
 # To run 🏃
-> git clone https://github.com/Kshatriyaprithviraj/social-media-platform.git
-> yarn 
-> yarn start
+> git clone https://github.com/Kshatriyaprithviraj/social-media-platform.git <br>
+> yarn <br>
+> yarn start <br>
 
 # Looking forward to add features
 - **Block** & **Unblock** users
@@ -29,6 +29,7 @@
 
 # Note
 Feel freee to provide any (sort of) improvements & suggestions. I'd be glad on getting help & guidance in adding new features. ✨
+
 
 Cheers !! 🥂
 
