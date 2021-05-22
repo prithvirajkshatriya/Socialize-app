@@ -5,7 +5,8 @@
 - **Signin** & **Signup** 🍒
 - **Follow** & **Unfollow** 📇
 - **Add** & **delete** posts
-- **Newsfeed** & **discover** users
+- **Newsfeed** 
+- **Discover** users
 - **Like** & **Unlike** posts
 - **Comment** & **Uncomment** on posts
 - **Authentication** for signin
