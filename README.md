@@ -4,7 +4,7 @@
 # Features 💊
 - **Signin** & **Signup** 🍒
 - **Follow** & **Unfollow** users 👥
-- **Add** & **delete** posts ✔️
+- **Add** & **delete** posts ✔️ ❎
 - **Newsfeed** 📰
 - **Discover** users 🔎
 - **Like** & **Unlike** posts 👍🏻 👎🏻
