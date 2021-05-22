@@ -1,5 +1,5 @@
 # Socialize social web application 🧑🏻‍🤝‍🧑🏻
- A social media web application developed using **MERN** stack.🙋🏻‍♂️
+ A social media web application developed using **MERN** stack.🏨
 
 # Features 💊
 - **Signin** & **Signup** 🍒
@@ -28,7 +28,7 @@
 - **Share** within **socialize** and to **other apps**
 
 # Note
-You can freely approach me regarding improvements & suggestions. I'd be glad on getting help & guidance in adding new features. ✨
+Feel freee to provide any (sort of) improvements & suggestions. I'd be glad on getting help & guidance in adding new features. ✨
 
 Cheers !! 🥂
 
