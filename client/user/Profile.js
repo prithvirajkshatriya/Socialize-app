@@ -90,13 +90,30 @@ export default function Profile({ match }) {
         setValues({ ...values, error: data.error });
       } else {
         setValues({ ...values, user: data, following: !values.following });
-        <ProfileTabs
-          user={values.user}
-          posts={posts}
-          removePostUpdate={removePost}
-        />;
       }
     });
+  };
+
+  const loadPosts = (user) => {
+    listByUser(
+      {
+        userId: user,
+      },
+      { tt: jwt.token }
+    ).then((data) => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        setPosts(data);
+      }
+    });
+  };
+
+  const removePost = (post) => {
+    const updatedPosts = posts;
+    const index = updatedPosts.indexOf(post);
+    updatedPosts.splice(index, 1);
+    setPosts(updatedPosts);
   };
 
   const photoUrl = values.user._id

@@ -53,6 +53,8 @@ export default function Post(props) {
   const classes = useStyles();
   const jwt = auth.isAuthenticated();
 
+  // Checks whether the currently signed-in user is
+  // referenced in the post's likes array or not.
   const checkLike = (likes) => {
     let match = likes.indexOf(jwt.user._id) !== -1;
     return match;
