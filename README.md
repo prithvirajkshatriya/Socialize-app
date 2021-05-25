@@ -24,7 +24,7 @@
 > yarn build <br>
 > yarn start
 
-# Looking forward to add features ⏭️
+# Looking forward to add [new] features ⏭️
 - **Block** & **Unblock** users
 - **Share** within **socialize** and to **other apps**
 
