@@ -2,13 +2,13 @@
  A social media web application developed using **MERN** stack.🏨
 
 # Features 💊
-- **Signin** & **Signup** 🍒
+- **Signin** & **Signup** 🖋️↕️
 - **Follow** & **Unfollow** users 👥
 - **Add** & **delete** posts ✔️ ❎
 - **Newsfeed** 📰
 - **Discover** users 🔎
 - **Like** & **Unlike** posts 👍🏻 👎🏻
-- **Comment** & **Uncomment** on posts 🤡
+- **Comment** & **Uncomment** on posts 🤡🦜
 - **Authentication** for signin 🛡️
 
 # Tools used 🧰
