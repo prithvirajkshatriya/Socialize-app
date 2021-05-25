@@ -21,7 +21,8 @@
 # To run 🏃
 > git clone https://github.com/Kshatriyaprithviraj/social-media-platform.git <br>
 > yarn <br>
-> yarn start <br>
+> yarn build <br>
+> yarn start
 
 # Looking forward to add features ⏭️
 - **Block** & **Unblock** users
