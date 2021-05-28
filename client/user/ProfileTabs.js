@@ -35,12 +35,12 @@ export default function ProfileTabs() {
       )}
       {tab === 1 && (
         <TabContainer>
-          <FollowGrid people="{props.user.following}" />
+          <FollowGrid people={props.user.following} />
         </TabContainer>
       )}
       {tab === 2 && (
         <TabContainer>
-          <FollowGrid people="{props.user.followrs}" />
+          <FollowGrid people={props.user.followers} />
         </TabContainer>
       )}
     </div>

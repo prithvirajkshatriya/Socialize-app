@@ -98,9 +98,11 @@ export default function Discover() {
       }
     });
   };
+
   const handleRequestClose = (event, reason) => {
     setValues({ ...values, open: false });
   };
+
   return (
     <div>
       <Paper className={classes.root} elevation={4}>

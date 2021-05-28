@@ -159,14 +159,14 @@ export default function Post(props) {
             color="secondary">
             <FavoriteBorderIcon />
           </IconButton>
-        )}{' '}
+        )}
         <span>{values.likes}</span>
         <IconButton
           className={classes.button}
           aria-label="Comment"
           color="secondary">
           <CommentIcon />
-        </IconButton>{' '}
+        </IconButton>
         <span>{values.comments.length}</span>
       </CardActions>
       <Divider />

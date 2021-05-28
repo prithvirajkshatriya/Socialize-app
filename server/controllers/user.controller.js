@@ -21,6 +21,7 @@ const create = async (req, res) => {
 };
 
 // Loading a user after receiving a users/:userId parameter.
+// Load user and append to request.
 const userById = async (req, res, next, id) => {
   try {
     let user = await User.findById(id)

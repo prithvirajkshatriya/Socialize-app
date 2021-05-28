@@ -74,6 +74,7 @@ app.get('*', (req, res) => {
   );
 });
 
+// Catch unauthorized users.
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
     res.status(401).json({

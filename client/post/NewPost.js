@@ -133,7 +133,7 @@ export default function NewPost(props) {
               component="span">
               <PhotoCamera />
             </IconButton>
-          </label>{' '}
+          </label>
           <span className={classes.filename}>
             {values.photo ? values.photo.name : ''}
           </span>
