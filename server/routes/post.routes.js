@@ -37,3 +37,5 @@ router
 
 router.param('userId', UserCtrl.userById);
 router.param('postId', postCtrl.postById);
+
+export default router;

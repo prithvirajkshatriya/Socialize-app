@@ -16,7 +16,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import { remove, like, unlike } from './api-post.js';
-import Comments from './Comments';
+import Comments from '../post/Comment';
 
 const useStyles = makeStyles((theme) => ({
   card: {
