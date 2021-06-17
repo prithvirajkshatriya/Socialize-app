@@ -18,11 +18,18 @@
 - [express@4.17.1](https://expressjs.com/)
 - [nodejs@15.14.0](https://nodejs.org/)
 
-# To run 🏃
-> git clone https://github.com/Kshatriyaprithviraj/social-media-platform.git <br>
-> yarn <br>
-> yarn build <br>
-> yarn start
+# To run 🏃 <br>
+
+> `git clone https://github.com/Kshatriyaprithviraj/social-media-platform.git` <br>
+
+> `yarn` <br>
+
+**In development mode**  <br>
+> `yarn development` <br> 
+
+**In production mode** <br>
+> `yarn build` <br>
+> `yarn start`
 
 # Looking forward to add [new] features ⏭️
 - **Block** & **Unblock** users
