@@ -17,7 +17,9 @@
 - [mongodb@4.4.5](https://www.mongodb.com/)
 - [express@4.17.1](https://expressjs.com/)
 - [nodejs@15.14.0](https://nodejs.org/)
-
+- [express-jwt](https://www.npmjs.com/package/express-jwt)
+- [nodemon](https://www.npmjs.com/package/nodemon)
+- 
 # To run 🏃 <br>
 
 > `git clone https://github.com/Kshatriyaprithviraj/social-media-platform.git` <br>
