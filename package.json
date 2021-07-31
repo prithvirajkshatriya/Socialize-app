@@ -1,22 +1,5 @@
 {
-  "name": "socialize",
-  "version": "1.0.0",
-  "description": "A simple MERN-stack based social media app.",
-  "main": "./dist/server.generated.js",
-  "scripts": {
-    "development": "nodemon",
-    "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
-    "start": "NODE_ENV=production node ./dist/server.generated.js"
-  },
   "author": "Prithvi",
-  "license": "MIT",
-  "keywords": [
-    "react",
-    "node",
-    "express",
-    "mongodb",
-    "mern"
-  ],
   "dependencies": {
     "@hot-loader/react-dom": "^17.0.1",
     "@material-ui/core": "^4.11.3",
@@ -39,6 +22,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
   },
+  "description": "A simple MERN-stack based social media app.",
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
@@ -51,5 +35,21 @@
     "webpack-dev-middleware": "^4.1.0",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-node-externals": "^2.5.2"
-  }
+  },
+  "keywords": [
+    "react",
+    "node",
+    "express",
+    "mongodb",
+    "mern"
+  ],
+  "license": "MIT",
+  "main": "./dist/server.generated.js",
+  "name": "socialize",
+  "scripts": {
+    "development": "nodemon",
+    "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
+    "start": "NODE_ENV=production node ./dist/server.generated.js"
+  },
+  "version": "1.0.0"
 }
